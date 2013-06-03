@@ -3,6 +3,7 @@
 App::uses('PaypalIpnSource', 'PaypalIpn.Model/Datasource');
 App::uses('CakeEmail', 'Network/Email');
 App::uses('PaypalIpnEmptyRawDataExpection', 'PaypalIpn.Lib/Error');
+App::uses('PaypalIpnAppModel', 'PaypalIpn.Model');
 
 /**
  * @property PaypalItem $PaypalItem Model hasMany

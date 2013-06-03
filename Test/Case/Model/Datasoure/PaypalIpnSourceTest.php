@@ -38,7 +38,7 @@ class PaypalIpnSourceTestCase extends CakeTestCase {
 		$this->PaypalIpn->Http->expects($this->once())
 			->method('post')
 			->with($expects['postUrl'], $expects['postData'])
-			->will($this->returnValue($preset['postReturn']));
+			->will($this->returnValue(['body' => $preset['postReturn']]));
 
 		$this->assertSame($expects['result'], $this->PaypalIpn->isValid($preset['data'], $preset['test']));
 	}
