@@ -35,12 +35,13 @@ class PaypalIpnSourceTestCase extends CakeTestCase {
  * @dataProvider isValidDataProvider
  */
 	public function testIsValid($label, $preset, $expects) {
-		$this->PaypalIpn->Http->expects($this->once())
+		$this->PaypalIpn->Http
+			->expects($this->once())
 			->method('post')
 			->with($expects['postUrl'], $expects['postData'])
 			->will($this->returnValue(['body' => $preset['postReturn']]));
 
-		$this->assertSame($expects['result'], $this->PaypalIpn->isValid($preset['data'], $preset['test']));
+		$this->assertSame($expects['result'], $this->PaypalIpn->isValid($preset['data'], $preset['test'], true));
 	}
 
 	public function isValidDataProvider() {
